@@ -8,18 +8,14 @@ class AnthemisInvestorsSpider(scrapy.Spider):
     j = 0
     
     def start_requests(self):
-        urls = ['https://www.anthemis.com/invest/',]
-        
+        urls = ['https://www.anthemis.com/invest/',]       
         for url in urls:
-            yield scrapy.Request(url=url, callback=self.parse)
-   
+            yield scrapy.Request(url=url, callback=self.parse)   
 
     def parse(self, response):
         investors = response.xpath("//*[contains(@class, 'team-member')]/a/@href").extract()
-        for investor in investors:
-            
-            url = urljoin(response.url, investor)
-            
+        for investor in investors:          
+            url = urljoin(response.url, investor)          
             yield scrapy.Request(url, callback=self.parse_investor_page)
 
     def parse_investor_page(self, response):
