@@ -1,7 +1,8 @@
-import scrapy
 from urllib.parse import urljoin
+import scrapy
 
 class AnthemisInvestorsSpider(scrapy.Spider):
+
     name = "anthemis"
     i = 0
     j = 0
