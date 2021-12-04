@@ -1,7 +1,5 @@
 # scrapy_assignment
-This is a small scrapy projects with 2 spiders
-
-Using python 3.9 and Scrapy create scrapers for VC investment portfolios. 
+This is a small scrapy project with 2 scrapers for VC investment portfolios. 
 
 Input: Only needs to work for 2 VCs, each will require a different spider
 
@@ -10,12 +8,12 @@ Input: Only needs to work for 2 VCs, each will require a different spider
 
 Output: A list of active investment companies where each company is indicated by its web domain i.e. www1.x.com becomes x.com
 
-## Excecution
+# Excecution
 
-### usv spider
+## usv spider
 scrapy crawl usv --nolog -a status_cat='current'
 
 If status_cat is not specified then the spider will use the 'current' value by default. possible values are: all, current, acquired, public, inactive
 
-### anthemis spider
+## anthemis spider
 scrapy crawl anthemis --nolog
