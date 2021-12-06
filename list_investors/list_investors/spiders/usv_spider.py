@@ -1,5 +1,5 @@
 import scrapy
-from scrapy import Selector
+import tldextract
 
 class UsvInvestorsSpider(scrapy.Spider):
 
@@ -14,12 +14,8 @@ class UsvInvestorsSpider(scrapy.Spider):
             yield scrapy.Request(url=url, callback=self.parse) 
 
     def parse(self, response):
-        i = 0
-        sel = Selector(response)
-        divs = sel.xpath("//div[@class='m__list-row ']")
-
-        for divx in divs:
-            inv = divx.css('a').xpath('@href').get().split('//')[1].split('/')[0].replace('www.', '')
-            if inv != 'usv.com':
-                i += 1
-                print('{}: {}'.format(i, inv))
+        domains = list(filter(lambda domain: domain != 'usv.com', list(map( lambda url : tldextract.extract(url).registered_domain , \
+                        response.xpath("//div[@class='m__list-row ']").css('a').xpath('@href').extract()))))
+        print(domains)
+        yield {'domains': domains}
+        

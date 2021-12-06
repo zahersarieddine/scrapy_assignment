@@ -8,7 +8,7 @@ Input: Only needs to work for 2 VCs, each will require a different spider
 
 Output: A list of active investment companies where each company is indicated by its web domain i.e. www1.x.com becomes x.com
 
-# Excecution
+# Execution
 
 ## usv spider
 scrapy crawl usv --nolog -a status_cat='current'

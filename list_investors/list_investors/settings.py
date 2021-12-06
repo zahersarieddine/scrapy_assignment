@@ -86,3 +86,9 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+# Desired file format
+FEED_FORMAT = "csv"
+ 
+# Name of the file where data extracted is stored
+FEED_URI = "out.csv"
