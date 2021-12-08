@@ -8,8 +8,7 @@ class UsvInvestorsSpider(scrapy.Spider):
     allowed_domains = ['www.usv.com', ]
 
     def start_requests(self):
-        urls = [f'https://www.usv.com/companies/?status-cat={self.status_cat}',]
-        
+        urls = [f'https://www.usv.com/companies/?status-cat={self.status_cat}',]       
         for url in urls:
             yield scrapy.Request(url=url, callback=self.parse) 
 
