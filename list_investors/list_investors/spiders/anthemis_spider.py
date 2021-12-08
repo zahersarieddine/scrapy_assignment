@@ -14,7 +14,7 @@ class AnthemisInvestorsSpider(scrapy.Spider):
         
     
     def parse(self, response):
-        # get all link elements that have are in div elements with class 'team-member' and iterate over them to yield a separate request.
+        # get all link elements that have are in div elements with class 'team-member' and iterate over them to yield a separate requests for each one.
         
         investors = response.xpath("//*[contains(@class, 'team-member')]/a/@href").extract()
         for investor in investors:          
